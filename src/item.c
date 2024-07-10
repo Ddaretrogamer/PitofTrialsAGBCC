@@ -1530,11 +1530,12 @@ void HideHeaderBox(void)
 #define ITEM_TAG 0x2722 //same as money label
 static void ShowItemIconSprite(u16 item, bool8 firstTime, bool8 flash)
 {
+    u8 iconSpriteId;   
+    u8 spriteId2 = MAX_SPRITES;
     s16 x, y;
     x = 0;
     y = 0;
-    u8 iconSpriteId;   
-    u8 spriteId2 = MAX_SPRITES;
+
 
     if (flash)
     {

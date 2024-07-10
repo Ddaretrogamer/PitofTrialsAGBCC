@@ -960,7 +960,7 @@ static u8 UNUSED InitMenuDefaultCursorHeight(u8 windowId, u8 fontId, u8 left, u8
 void RedrawMenuCursor(u8 oldPos, u8 newPos)
 {
     u8 width, height;
-
+    const u8 colors[3] = {10,  1,  2};
     width = GetMenuCursorDimensionByFont(sMenu.fontId, 0);
     height = GetMenuCursorDimensionByFont(sMenu.fontId, 1);
     
@@ -972,7 +972,7 @@ void RedrawMenuCursor(u8 oldPos, u8 newPos)
     else
     {
         FillWindowPixelRect(sMenu.windowId, PIXEL_FILL(10), sMenu.left, sMenu.optionHeight * oldPos + sMenu.top, width, height);
-        const u8 colors[3] = {10,  1,  2};
+        
         AddTextPrinterParameterized4(sMenu.windowId, sMenu.fontId, sMenu.left, sMenu.optionHeight * newPos + sMenu.top, 0, 0, colors, 0, gText_SelectorArrow3);
     }
 }

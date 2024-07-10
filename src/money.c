@@ -132,7 +132,7 @@ void PrintMoneyAmountOverride(u8 windowId, u8 x, u8 y, int amount, u8 speed)
 {
     u8 *txtPtr;
     s32 strLength;
-
+    const u8 colors[3] = {11,  1,  2};
     ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, 6);
 
     strLength = 6 - StringLength(gStringVar1);
@@ -142,7 +142,7 @@ void PrintMoneyAmountOverride(u8 windowId, u8 x, u8 y, int amount, u8 speed)
         *(txtPtr++) = CHAR_SPACER;
 
     StringExpandPlaceholders(txtPtr, gText_PokedollarVar1);
-    const u8 colors[3] = {11,  1,  2};
+    
     FillWindowPixelBuffer(windowId, PIXEL_FILL(11));
     AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 0, 0, colors, speed, gStringVar4);
 }

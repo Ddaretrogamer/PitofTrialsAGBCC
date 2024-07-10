@@ -1056,7 +1056,8 @@ static void CreateMugshot()
 
 static void DestroyMugshot()
 {
-    for(u8 i = 0; i < 12; i++)
+    u8 i;
+    for(i = 0; i < 12; i++)
     {
         DestroySprite(&gSprites[sOutfitsMenuDataPtr->mugshotSpriteId[i]]);
         sOutfitsMenuDataPtr->mugshotSpriteId[i] = SPRITE_NONE;

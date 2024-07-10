@@ -562,6 +562,7 @@ u16 ReturnLastSpokenVarObjGfxId()
 
 u16 ReturnNumberOfTrainersForFloor()
 {
+    u16 randomValue = Random() % 100;
     FlagSet(FLAG_MOVER_OBJECT);
 
     if(VarGet(VAR_PIT_FLOOR) == 100)
@@ -609,7 +610,7 @@ u16 ReturnNumberOfTrainersForFloor()
     FlagSet(FLAG_MOVE_RELEARNER);
     FlagSet(FLAG_MOVER_OBJECT);
     FlagSet(FLAG_GIVE_POKEMON);
-
+    
     if((VarGet(VAR_PIT_FLOOR) > 25) && ((VarGet(VAR_PIT_FLOOR) < 95) || (VarGet(VAR_PIT_FLOOR) > 101)))
     {
         if(!(Random() % 20))
@@ -625,7 +626,7 @@ u16 ReturnNumberOfTrainersForFloor()
     if(VarGet(VAR_PIT_FLOOR) < 5)
         return 1;
 
-    u16 randomValue = Random() % 100;
+    
     if(VarGet(VAR_PIT_FLOOR) < 25) // first 25 floor rates
     {
         if(randomValue < 65)

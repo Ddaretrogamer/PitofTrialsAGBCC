@@ -441,10 +441,6 @@ void ScrCmd_givemon(struct ScriptContext *ctx)
     u16 species       = VarGet(ScriptReadHalfword(ctx));
     u8 level          = VarGet(ScriptReadHalfword(ctx));
 
-    if (VarGet(VAR_PIT_FLOOR) > 5)
-    {
-        level = VarGet(VAR_PIT_FLOOR) > 100 ? 100 : VarGet(VAR_PIT_FLOOR);
-    }
 
     u32 flags         = ScriptReadWord(ctx);
     u16 item          = PARSE_FLAG(0, ITEM_NONE);
@@ -476,6 +472,11 @@ void ScrCmd_givemon(struct ScriptContext *ctx)
     u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};
     u16 moves[MAX_MON_MOVES] = {move1, move2, move3, move4};
 
+    
+    if (VarGet(VAR_PIT_FLOOR) > 5)
+    {
+        level = VarGet(VAR_PIT_FLOOR) > 100 ? 100 : VarGet(VAR_PIT_FLOOR);
+    }
     species = GetSpeciesRandomNotSeeded(species);
 
     gSpecialVar_Result = ScriptGiveMonParameterized(species, level, item, ball, nature, abilityNum, gender, evs, ivs, moves, ggMaxFactor, teraType, isShiny);

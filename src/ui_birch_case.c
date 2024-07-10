@@ -184,9 +184,10 @@ static void GenerateRandomSpeciesForCase(void)
     u16 counter2 = 0;
     bool8 rerollMon;
     u8 partyCount;
+    u8 index;
     int i;
 
-    for(u8 index = 0; index < 9; index++)
+    for(index = 0; index < 9; index++)
     {
         counter = 0;
         counter2 = 0;

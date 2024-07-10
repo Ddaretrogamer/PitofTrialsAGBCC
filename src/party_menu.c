@@ -2771,7 +2771,7 @@ static void PartyMenuRemoveWindow(u8 *ptr)
 void DisplayPartyMenuStdMessage(u32 stringId)
 {
     u8 *windowPtr = &sPartyMenuInternal->windowId[1];
-
+    const u8 colors[3] = {10,  1,  2};
     if (*windowPtr != WINDOW_NONE)
         PartyMenuRemoveWindow(windowPtr);
 
@@ -2811,7 +2811,7 @@ void DisplayPartyMenuStdMessage(u32 stringId)
                 stringId = PARTY_MSG_CHOOSE_MON_OR_CANCEL;
         }
 
-        const u8 colors[3] = {10,  1,  2};
+        
         DrawStdFrameWithCustomTileAndPalette(*windowPtr, FALSE, 0x4F, 13);
         FillWindowPixelBuffer(*windowPtr, PIXEL_FILL(10));
         StringExpandPlaceholders(gStringVar4, sActionStringTable[stringId]);

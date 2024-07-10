@@ -341,11 +341,11 @@ static const u8 sShopBuyMenuTextColors[][3] =
 static u8 CreateShopMenu(u8 martType)
 {
     //int numMenuItems;
-
+    struct WindowTemplate winTemplate;
     LockPlayerFieldControls();
     sMartInfo.martType = martType;
 
-    struct WindowTemplate winTemplate = sShopMenuWindowTemplates[WIN_BUY_SELL_QUIT];
+    winTemplate = sShopMenuWindowTemplates[WIN_BUY_SELL_QUIT];
     winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuySellQuit, ARRAY_COUNT(sShopMenuActions_BuySellQuit));
     sMartInfo.windowId = AddWindow(&winTemplate);
     sMartInfo.menuActions = sShopMenuActions_BuySellQuit;
